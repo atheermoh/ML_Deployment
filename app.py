@@ -24,7 +24,6 @@ def main():
 
     st.set_page_config(
         page_title="Autoscout Car Price Prediction App",
-        page_icon="🚗",
         layout="centered",
         initial_sidebar_state="collapsed",
     )
@@ -32,7 +31,7 @@ def main():
     st.title("Autoscout Car Price Prediction App")
 
     # manually enter values
-    st.write("### Enter the car details Please:")
+    st.write("### Scroll to Choose the Car features and Check the Car Price:")
     age = st.slider("Car's Age", min_value=1, max_value=20, value=5)
     hp_kW = st.slider("Horsepower (kW)", min_value=50, max_value=500, value=100)
     km = st.slider("Kilometers driven", min_value=0, max_value=200000, value=50000)
@@ -56,7 +55,7 @@ def main():
     # Make prediction
     if st.button("Predict Price", key="predict_button"):
         predicted_price = predict_price([features["age"], features["hp_kW"], features["km"], features["Gearing_Type"], features["make_model"]])
-        st.success(f"### Predicted Price: {predicted_price[0]:,.2f} USD")
+        st.success(f"### Car Price: {predicted_price[0]:,.2f} USD")
 
 if __name__ == "__main__":
     main()
